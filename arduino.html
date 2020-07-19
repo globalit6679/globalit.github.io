@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+    <title>라즈베리파이 수업</title>
+</head>
+<body>
+    <h2>아두이노 서보모터 제어하기</h2>
+    <h3>Arduino</h3>
+    <p>
+        #include <Servo.h>
+
+
+
+            Servo myservoH;  // create servo object to control a servo
+            
+            Servo myservoV;
+            
+            int posH = 90;
+            
+            int posV = 90;
+            
+            
+            
+            void setup() {
+            
+              myservoH.attach(8);  // 서보모터를 쉴드의 8번에 연결한다.
+            
+              myservoV.attach(7);  // 서보모터를 쉴드의 7번에 연결한다.
+            
+            
+            
+              Serial.begin(9600);
+            
+            }
+            
+            
+            
+            void loop() {
+            
+              while (Serial.available() > 0) {
+            
+                long value = Serial.parseInt();
+            
+                int backUpH = posH;
+            
+                int backUpV = posV;
+            
+                switch (value) {
+            
+                  case 1:
+            
+                    //posH = posH - 5; 같은 표현이다 posH -= 5;
+            
+                    posH -= 5;
+            
+                    break;
+            
+                  case 2:
+            
+                    posH += 5;
+            
+                    break;
+            
+                  case 3:
+            
+                    posV -= 5;
+            
+                    break;
+            
+                  case 4:
+            
+                    posV += 5;
+            
+                    break;
+            
+                }
+            
+                if (posH<0 || posH>180) {
+            
+                  posH=backUpH;
+            
+                }
+            
+                if (posV<0 || posV>180) {
+            
+                  posV=backUpV;
+            
+                }
+            
+                myservoH.write(posH);
+            
+                myservoV.write(posV);
+            
+              }
+            
+            } 
+    </p><br>
+    <h3>Python</h3>
+    <p>
+        import cv2
+
+import serial
+
+arduino = serial.Serial('COM12',9600)
+
+cap = cv2.VideoCapture(0)  
+
+while(True):  
+
+    # Capture frame-by-frame  
+
+    ret, frame = cap.read()  
+
+    
+
+    cv2.imshow('frame',frame)
+
+
+
+    key = cv2.waitKey(1) & 0xFF
+
+    
+
+    if key == ord('q'):  
+
+        break
+
+    elif key ==ord('a'):          #왼쪽
+
+        arduino.write(b'1\n')
+
+        print(b'1\n')
+
+    elif key ==ord('d'):          #오른쪽
+
+        arduino.write(b'2\n')
+
+        print(b'2\n')
+
+    elif key ==ord('w'):          #위
+
+        arduino.write(b'3\n')
+
+        print(b'3\n')
+
+    elif key ==ord('s'):          #아래
+
+        arduino.write(b'4\n')
+
+        print(b'4\n')
+
+# When everything done, release the capture  
+
+cap.release()  
+
+cv2.destroyAllWindows()  
+
+
+    </p>
+</body>
