@@ -40,6 +40,27 @@
                 width: 80px;
                 height: 80px;
             }
+            .box3 > p{
+                border-radius: 10px;
+                border: 2px solid;
+                width: 400px;
+                height: 40px;
+                text-align: center;
+                background-color: black;
+                
+            }
+            a:link{
+                color: white;
+            }
+            a:visited{
+                color: blue;
+            }
+            a:active{
+                color: yellow;
+            }
+            a:hover{
+                color: red;
+            }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
@@ -52,33 +73,30 @@
 
                     var userId = $(this).attr("id");
                     var user = parseInt(userId.charAt(userId.length - 1));
-                    
-
-                
                     switch(user){
                         case 1:
-                            $("#img1").attr("src","./img/scissors.png");
+                            $("#img1").attr("src","https://user-images.githubusercontent.com/67906620/86597594-eb4fbf00-bfd6-11ea-95b7-68b76efcdb38.png");
                             break;
                         case 2:
                         
-                            $("#img1").attr("src","./img/rock.png");
+                            $("#img1").attr("src","https://user-images.githubusercontent.com/67906620/86597590-ea1e9200-bfd6-11ea-95b5-afce6a007ddc.png");
                             break;
 
                         case 3:
-                            $("#img1").attr("src","./img/paper.png");
+                            $("#img1").attr("src","https://user-images.githubusercontent.com/67906620/86597585-e8ed6500-bfd6-11ea-862f-cbcf6a679ef1.png");
                             break;
                     }
                     switch(com){
                         case 1:
-                            $("#img2").attr("src","./img/scissorscom.png");
+                            $("#img2").attr("src","https://user-images.githubusercontent.com/67906620/86597596-ebe85580-bfd6-11ea-8281-c1994039ed9d.png");
                             break;
                         case 2:
                         
-                            $("#img2").attr("src","./img/rockcom.png");
+                            $("#img2").attr("src","https://user-images.githubusercontent.com/67906620/86597592-eab72880-bfd6-11ea-92f9-fabe42dfcf1f.png");
                             break;
 
                         case 3:
-                            $("#img2").attr("src","./img/papercom.png");
+                            $("#img2").attr("src","https://user-images.githubusercontent.com/67906620/86597587-e985fb80-bfd6-11ea-9a54-ee468e2dd4ef.png");
                             break;
                     }
                     var str = "";
@@ -109,8 +127,8 @@
                     total = 0;
                     wincount = 0;
 
-                    $("#img1").attr("src","./img/q.png")
-                    $("#img2").attr("src","./img/q.png")
+                    $("#img1").attr("src","https://user-images.githubusercontent.com/67906620/86597588-ea1e9200-bfd6-11ea-8df0-173abd6c9595.png")
+                    $("#img2").attr("src","https://user-images.githubusercontent.com/67906620/86597588-ea1e9200-bfd6-11ea-8df0-173abd6c9595.png")
                     $("#msg").html("");
                 })
             });
@@ -123,25 +141,33 @@
             </div>
             <div class="box2">
                 <p>
-                    <img src="./img/scissors.png" id="i1">
-                    <img src="./img/rock.png" id="i2">
-                    <img src="./img/paper.png" id="i3">
+                    <img src="https://user-images.githubusercontent.com/67906620/86597594-eb4fbf00-bfd6-11ea-95b7-68b76efcdb38.png" id="i1">
+                    <img src="https://user-images.githubusercontent.com/67906620/86597590-ea1e9200-bfd6-11ea-95b5-afce6a007ddc.png" id="i2">
+                    <img src="https://user-images.githubusercontent.com/67906620/86597585-e8ed6500-bfd6-11ea-862f-cbcf6a679ef1.png" id="i3">
                     
                 </p>
                 <p>
                     <input type="button" value="다시하기" id="bt1">
 
                 </p>
-
-
             </div>
             <div id="msgimg">
-                <img src="./img/q.png" id="img1">
-                <img src="./img/vs.png">
-                <img src="./img/q.png" id="img2">
+                <img src="https://user-images.githubusercontent.com/67906620/86597588-ea1e9200-bfd6-11ea-8df0-173abd6c9595.png" id="img1">
+                <img src="https://user-images.githubusercontent.com/67906620/86597598-ec80ec00-bfd6-11ea-9837-72c565d37a24.png">
+                <img src="https://user-images.githubusercontent.com/67906620/86597588-ea1e9200-bfd6-11ea-8df0-173abd6c9595.png" id="img2">
 
             </div>
             <div id="msg"></div>
+            <br>
+            <div class="box3">
+                <p>
+                
+                <a href=index.html>처음으로</a><br>
+                <a href=final.html>final</a>
+                </p>
+            </div>
+          
         </form>
+        
     </body>
 </html>
