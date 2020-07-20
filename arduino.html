@@ -12,10 +12,9 @@
     <h2>아두이노 서보모터 제어하기</h2>
     <h3>[Arduino]</h3>
     <h3><p>
-        #include <Servo.h><br>
-            Servo myservoH;<!--create servo object to control a servo--><br>
+        #include [Servo.h] <br>
+         Servo myservoH;<!--create servo object to control a servo--><br>
             Servo myservoV;<br>
-            
             int posH = 90;<br>
             
             int posV = 90;<br>
@@ -24,13 +23,13 @@
             
             void setup() {<br>
             
-              myservoH.attach(8);<br>  // 서보모터를 쉴드의 8번에 연결한다.
+              &nbsp;&nbsp;&nbsp;&nbsp;myservoH.attach(8); //서보모터를 쉴드의 8번에 연결한다.<br>
             
-              myservoV.attach(7);<br>  // 서보모터를 쉴드의 7번에 연결한다.
+              &nbsp;&nbsp;&nbsp;&nbsp;myservoV.attach(7); //서보모터를 쉴드의 7번에 연결한다.<br>
             
             
             
-              Serial.begin(9600);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Serial.begin(9600);<br>
             
             }<br>
             
@@ -38,43 +37,35 @@
             
             void loop() {<br>
             
-              while (Serial.available() > 0) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;while (Serial.available() > 0) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long value = Serial.parseInt();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int backUpH = posH;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int backUpV = posV;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch (value) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posH -= 5;<br>
             
-                long value = Serial.parseInt();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
             
-                int backUpH = posH;
-            <br>
-                int backUpV = posV;<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2:<br>
             
-                switch (value) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posH += 5;<br>
             
-                  case 1:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
             
-                    //posH = posH - 5; 같은 표현이다 posH -= 5;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3:<br>
             
-                    posH -= 5;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posV -= 5;<br>
             
-                    break;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
             
-                  case 2:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 4:<br>
             
-                    posH += 5;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;posV += 5;<br>
             
-                    break;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
             
-                  case 3:<br>
-            
-                    posV -= 5;<br>
-            
-                    break;<br>
-            
-                  case 4:<br>
-            
-                    posV += 5;<br>
-            
-                    break;<br>
-            
-                }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
             
                 if (posH<0 || posH>180) {<br>
             
