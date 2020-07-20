@@ -12,150 +12,149 @@
     <h2>아두이노 서보모터 제어하기</h2>
     <h3>[Arduino]</h3>
     <h3><p>
-        #include <Servo.h>
-            Servo myservoH;  // create servo object to control a servo
+        #include <Servo.h><br>
+            Servo myservoH;<!--create servo object to control a servo--><br>
+            Servo myservoV;<br>
             
-            Servo myservoV;
+            int posH = 90;<br>
             
-            int posH = 90;
-            
-            int posV = 90;
-            
-            
-            
-            void setup() {
-            
-              myservoH.attach(8);  // 서보모터를 쉴드의 8번에 연결한다.
-            
-              myservoV.attach(7);  // 서보모터를 쉴드의 7번에 연결한다.
+            int posV = 90;<br>
             
             
             
-              Serial.begin(9600);
+            void setup() {<br>
             
-            }
+              myservoH.attach(8);<br>  // 서보모터를 쉴드의 8번에 연결한다.
+            
+              myservoV.attach(7);<br>  // 서보모터를 쉴드의 7번에 연결한다.
             
             
             
-            void loop() {
+              Serial.begin(9600);<br>
             
-              while (Serial.available() > 0) {
+            }<br>
             
-                long value = Serial.parseInt();
+            
+            
+            void loop() {<br>
+            
+              while (Serial.available() > 0) {<br>
+            
+                long value = Serial.parseInt();<br>
             
                 int backUpH = posH;
+            <br>
+                int backUpV = posV;<br>
             
-                int backUpV = posV;
+                switch (value) {<br>
             
-                switch (value) {
-            
-                  case 1:
+                  case 1:<br>
             
                     //posH = posH - 5; 같은 표현이다 posH -= 5;
             
-                    posH -= 5;
+                    posH -= 5;<br>
             
-                    break;
+                    break;<br>
             
-                  case 2:
+                  case 2:<br>
             
-                    posH += 5;
+                    posH += 5;<br>
             
-                    break;
+                    break;<br>
             
-                  case 3:
+                  case 3:<br>
             
-                    posV -= 5;
+                    posV -= 5;<br>
             
-                    break;
+                    break;<br>
             
-                  case 4:
+                  case 4:<br>
             
-                    posV += 5;
+                    posV += 5;<br>
             
-                    break;
+                    break;<br>
             
-                }
+                }<br>
             
-                if (posH<0 || posH>180) {
+                if (posH<0 || posH>180) {<br>
             
-                  posH=backUpH;
+                  posH=backUpH;<br>
             
-                }
+                }<br>
             
-                if (posV<0 || posV>180) {
+                if (posV<0 || posV>180) {<br>
             
-                  posV=backUpV;
+                  posV=backUpV;<br>
             
-                }
+                }<br>
             
-                myservoH.write(posH);
+                myservoH.write(posH);<br>
             
-                myservoV.write(posV);
+                myservoV.write(posV);<br>
             
-              }
+              }<br>
             
-            } 
+            } <br>
     </p></h3><br>
     <h3>[Python]</h3>
     <h3><p>
-        import cv2
+        import cv2<br>
 
-import serial
+import serial<br>
 
-arduino = serial.Serial('COM12',9600)
+arduino = serial.Serial('COM12',9600)<br>
 
-cap = cv2.VideoCapture(0)  
+cap = cv2.VideoCapture(0)  <br>
 
-while(True):  
+while(True):  <br>
 
-    # Capture frame-by-frame  
+    # Capture frame-by-frame  <br>
 
-    ret, frame = cap.read()  
-
-    
-
-    cv2.imshow('frame',frame)
-
-
-
-    key = cv2.waitKey(1) & 0xFF
+    ret, frame = cap.read()  <br>
 
     
 
-    if key == ord('q'):  
+    cv2.imshow('frame',frame)<br>
 
-        break
 
-    elif key ==ord('a'):          #왼쪽
 
-        arduino.write(b'1\n')
+    key = cv2.waitKey(1) & 0xFF<br>
 
-        print(b'1\n')
+    
 
-    elif key ==ord('d'):          #오른쪽
+    if key == ord('q'): <br> 
 
-        arduino.write(b'2\n')
+        break<br>
 
-        print(b'2\n')
+    elif key ==ord('a'):  <br>        #왼쪽
 
-    elif key ==ord('w'):          #위
+        arduino.write(b'1\n')<br>
 
-        arduino.write(b'3\n')
+        print(b'1\n')<br>
 
-        print(b'3\n')
+    elif key ==ord('d'):    <br>      #오른쪽
 
-    elif key ==ord('s'):          #아래
+        arduino.write(b'2\n')<br>
 
-        arduino.write(b'4\n')
+        print(b'2\n')<br>
 
-        print(b'4\n')
+    elif key ==ord('w'):   <br>       #위
+
+        arduino.write(b'3\n')<br>
+
+        print(b'3\n')<br>
+
+    elif key ==ord('s'):      <br>    #아래
+
+        arduino.write(b'4\n')<br>
+
+        print(b'4\n')<br>
 
 # When everything done, release the capture  
 
-cap.release()  
+cap.release()  <br>
 
-cv2.destroyAllWindows()  
+cv2.destroyAllWindows()  <br>
 
 
     </p></h3?
