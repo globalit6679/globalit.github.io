@@ -3,25 +3,19 @@
 <head>
     <title>라즈베리파이 수업</title>
     <style>
-        h3 p{
-            display: inline-block;
-        }
+        
     </style>
 </head>
 <body>
     <h2>아두이노 서보모터 제어하기</h2>
     <div class="arduino">
     <h3>[Arduino]</h3><br>
-    <h3><p>
+    <h3>
         #include [Servo.h] <br>
          Servo myservoH;<!--create servo object to control a servo--><br>
             Servo myservoV;<br>
             int posH = 90;<br>
-            
             int posV = 90;<br>
-            
-            
-            
             void setup() {<br>
             
               &nbsp;&nbsp;&nbsp;&nbsp;myservoH.attach(8); //서보모터를 쉴드의 8번에 연결한다.<br>
@@ -87,11 +81,11 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
             
             &nbsp;&nbsp;&nbsp;&nbsp;} <br>
-    </p></h3><br>
+    </h3><br>
         </div>
         <div class="python">
     <h3>[Python]</h3>
-    <h3><p>
+    <h3>
         import cv2<br>
 
 import serial<br>
@@ -151,7 +145,7 @@ cap.release()  <br>
 cv2.destroyAllWindows()  <br>
 
 
-        </p></h3>
+        </h3>
         </div>
 </body>
         </html>
