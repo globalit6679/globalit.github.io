@@ -9,7 +9,7 @@
 <body>
     <h2>아두이노 서보모터 제어하기</h2>
     <div class="arduino">
-    <h3>[Arduino]</h3><br>
+    <h3>[Arduino]</h3>
     <h3>
         #include [Servo.h] <br>
          Servo myservoH;<!--create servo object to control a servo--><br>
@@ -83,6 +83,8 @@
             &nbsp;&nbsp;&nbsp;&nbsp;} <br>
     </h3><br>
         </div>
+        
+        
         <div class="python">
     <h3>[Python]</h3>
     <h3>
@@ -96,47 +98,47 @@ cap = cv2.VideoCapture(0)  <br>
 
 while(True):  <br>
 
-    # Capture frame-by-frame  <br>
+    <!--# Capture frame-by-frame  <br>-->
 
-    ret, frame = cap.read()  <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ret, frame = cap.read()  <br>
 
     
 
-    cv2.imshow('frame',frame)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cv2.imshow('frame',frame)<br>
 
 
 
-    key = cv2.waitKey(1) & 0xFF<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;key = cv2.waitKey(1) & 0xFF<br>
 
     
 
     if key == ord('q'): <br> 
 
-        break<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break<br>
 
     elif key ==ord('a'):  <br>        #왼쪽
 
-        arduino.write(b'1\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;arduino.write(b'1\n')<br>
 
-        print(b'1\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(b'1\n')<br>
 
     elif key ==ord('d'):    <br>      #오른쪽
 
-        arduino.write(b'2\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;arduino.write(b'2\n')<br>
 
-        print(b'2\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(b'2\n')<br>
 
     elif key ==ord('w'):   <br>       #위
 
-        arduino.write(b'3\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;arduino.write(b'3\n')<br>
 
-        print(b'3\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(b'3\n')<br>
 
     elif key ==ord('s'):      <br>    #아래
 
-        arduino.write(b'4\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;arduino.write(b'4\n')<br>
 
-        print(b'4\n')<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(b'4\n')<br>
 
 # When everything done, release the capture  
 
