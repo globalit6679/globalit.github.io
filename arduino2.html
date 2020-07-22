@@ -106,25 +106,26 @@ import serial<br>
 
 arduino = serial.Serial('COM12',9600)<br>
 
-cap = cv2.VideoCapture(0)  <br>
+cap = cv2.VideoCapture(0)  <br> <!--영상(이미지) 캡쳐(첫 번째)-->
 
 while(True):  <br>
 
     <!--# Capture frame-by-frame  <br>-->
 
-    &nbsp;&nbsp;&nbsp;&nbsp;ret, frame = cap.read()  <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ret, frame = cap.read()  <br><!--프레임 별로 읽어오기 위해서 frame,ret으로 나누어 읽어옴-->
+        <!--ret, fram = cap.read() : 비디오의 한 프레임씩 읽음. 제대로 프레임을 읽으면 ret값이 True, 실패하면 False가 나타남. 즉, frame에 읽은 프레임이 나옴(반환됨)-->
 
     
 
-    &nbsp;&nbsp;&nbsp;&nbsp;cv2.imshow('frame',frame)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cv2.imshow('frame',frame)<br><!--cv2.imshow(tital, image) : title은 윈도우 창의 제목을 의미하며 image는 read로 읽어온 return 값(즉, frame)-->
 
 
 
-   &nbsp;&nbsp;&nbsp;&nbsp;key = cv2.waitKey(1) & 0xFF<br>
-
+   &nbsp;&nbsp;&nbsp;&nbsp;key = cv2.waitKey(1) & 0xFF<br> <!--cv2.waitKey()는 키보드 입력을 대기하는 함수(0이면 무한대기, 그 외 숫자는 특정 시간동안 대기하는 ms값)-->
+                        <!--0xFF -> 11111111 즉, 키보드와 입력한 것과 &(AND) 0xFF한 값을 key로 반환 ==> 키보드의 범위를 넘어가지 않게 하기 위함 -->
     
 
-    if key == ord('q'): <br> 
+    if key == ord('q'): <br> <!--ord : 키보드 문자-->
 
         &nbsp;&nbsp;&nbsp;&nbsp;break<br>
 
@@ -155,8 +156,9 @@ while(True):  <br>
 <!--# When everything done, release the capture  -->
 
 cap.release()  <br>
+<!--cap.release() : 오픈한 캡쳐 객체를 해제-->
 
-cv2.destroyAllWindows()  <br>
+cv2.destroyAllWindows()  <br> <!--cv2.destroyAllWindows() : 화면에 나타난 윈도우를 종료-->
 
 
         </h3>
