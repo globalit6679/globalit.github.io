@@ -54,7 +54,8 @@ lstY = []<br>
 <br>
 plt.ion()<br> <!--그래프 창의 애니매이션 기능 활성화-->
 fig = plt.figure()<br> <!--figure 객체 선언(한 화면에 여러 그래프를 그리기 위함)-->
-sf = fig.add_subplot(111)<br><!--subplot을 추가-->
+sf = fig.add_subplot(111)<br><!--subplot을 추가--> <!--subplot(nml) : n x m 그리드에 l번째 subplot-->
+	<!--subplot(111) == subplot(1,1,1) :: 1x1 그리드에 첫 번째 subplot-->
 plt.xlim([0,60])<br><!--x축 범위 지정-->
 plt.ylim([300,1000])<br><!--y축 범위 지정-->
 line1, = sf.plot(arrX,arrY,'r-')<br>
